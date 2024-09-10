@@ -11,6 +11,12 @@ builder.Services.AddKeyedSingleton<IRandomService, RandomService>("randomSinglet
 builder.Services.AddKeyedScoped<IRandomService, RandomService>("randomScoped");
 builder.Services.AddKeyedTransient<IRandomService, RandomService>("randomTransient");
 
+builder.Services.AddScoped<IPostsService, PostsService>();
+
+builder.Services.AddHttpClient<IPostsService, PostsService>(c =>
+{
+    c.BaseAddress = new Uri("https://jsonplaceholder.org/posts");
+});
 
 
 builder.Services.AddControllers();
