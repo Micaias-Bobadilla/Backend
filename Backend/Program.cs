@@ -22,7 +22,7 @@ builder.Services.AddHttpClient<IPostsService, PostsService>(c =>
 //Entitiy Framework
 builder.Services.AddDbContext<StoreContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("StoreConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TrabajoConnection"));
 });
 
 builder.Services.AddControllers();
